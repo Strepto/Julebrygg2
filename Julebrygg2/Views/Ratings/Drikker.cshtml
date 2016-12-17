@@ -1,0 +1,21 @@
+﻿@model List<Julebrygg2.Models.Drikke>
+
+@{
+    ViewBag.Title = "Drikker";
+}
+
+<h2>Drikker</h2>
+
+
+@foreach (var drikke in Model)
+{
+    <a href="@Url.Action("Create", new { id = drikke.ID })">
+        <div class="row">
+            <div class="col-xs-4">@drikke.Bilde</div>
+            <div class="col-xs-8">
+                <h4>@drikke.Navn</h4>
+                @drikke.Bryggeri, @drikke.Abv, @drikke.Pris, @drikke.Stil, @drikke.Land
+            </div>
+        </div>
+    </a>
+}

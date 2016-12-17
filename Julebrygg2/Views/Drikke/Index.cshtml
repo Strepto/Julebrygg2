@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Julebrygg2.Models.Drikke>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            alert("hei");
+        });
+    </script>
+    
+    }
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bryggeri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bilde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pris)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Land)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Navn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bryggeri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Abv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bilde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pris)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Land)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

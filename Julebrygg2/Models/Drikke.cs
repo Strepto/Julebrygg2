@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Julebrygg2.Models
 {
-    public class Drikke
+    public class Drikke : BaseEntity
     {
         public int ID { get; set; }
         public string Navn { get; set; }
@@ -15,5 +15,6 @@ namespace Julebrygg2.Models
         public string Stil { get; set; }
         public double Pris { get; set; }
         public string Land { get; set; }
+        public virtual ICollection<Rating> Rating { get; set; }
     }
 }

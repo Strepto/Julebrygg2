@@ -24,7 +24,16 @@
             @Html.DisplayNameFor(model => model.Karakter)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MyProperty)
+            @Html.DisplayNameFor(model => model.Nokkelord)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SmakerJul)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
         </th>
         <th></th>
     </tr>
@@ -44,7 +53,16 @@
             @Html.DisplayFor(modelItem => item.Karakter)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MyProperty)
+            @Html.DisplayFor(modelItem => item.Nokkelord)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SmakerJul)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

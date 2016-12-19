@@ -11,24 +11,18 @@ using Julebrygg2.Models;
 
 namespace Julebrygg2.Controllers
 {
-    public class RatingsController : Controller
+    public class RatingController : Controller
     {
         private Julebrygg2Context db = new Julebrygg2Context();
 
-        // GET: Ratings
+        // GET: Rating
         public ActionResult Index()
         {
             var rating = db.Rating.Include(r => r.Bruker).Include(r => r.Drikke);
             return View(rating.ToList());
         }
 
-        public ActionResult Drikker()
-        {
-            var drikker = db.Drikke;
-            return View(drikker.ToList());
-        }
-
-        // GET: Ratings/Details/5
+        // GET: Rating/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -43,7 +37,7 @@ namespace Julebrygg2.Controllers
             return View(rating);
         }
 
-        // GET: Ratings/Create
+        // GET: Rating/Create
         public ActionResult Create()
         {
             ViewBag.BrukerID = new SelectList(db.Bruker, "ID", "Navn");
@@ -51,12 +45,12 @@ namespace Julebrygg2.Controllers
             return View();
         }
 
-        // POST: Ratings/Create
+        // POST: Rating/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,DrikkeID,BrukerID,Bilde,Karakter,MyProperty")] Rating rating)
+        public ActionResult Create([Bind(Include = "ID,DrikkeID,BrukerID,Bilde,Karakter,Nokkelord,SmakerJul,ModifiedDate,CreateDate")] Rating rating)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +64,7 @@ namespace Julebrygg2.Controllers
             return View(rating);
         }
 
-        // GET: Ratings/Edit/5
+        // GET: Rating/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -87,12 +81,12 @@ namespace Julebrygg2.Controllers
             return View(rating);
         }
 
-        // POST: Ratings/Edit/5
+        // POST: Rating/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,DrikkeID,BrukerID,Bilde,Karakter,MyProperty")] Rating rating)
+        public ActionResult Edit([Bind(Include = "ID,DrikkeID,BrukerID,Bilde,Karakter,Nokkelord,SmakerJul,ModifiedDate,CreateDate")] Rating rating)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +99,7 @@ namespace Julebrygg2.Controllers
             return View(rating);
         }
 
-        // GET: Ratings/Delete/5
+        // GET: Rating/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -120,7 +114,7 @@ namespace Julebrygg2.Controllers
             return View(rating);
         }
 
-        // POST: Ratings/Delete/5
+        // POST: Rating/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

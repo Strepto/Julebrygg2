@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Julebrygg2.Models
 {
-    public class Rating
+    public class Rating : BaseEntity
     {
         public int ID { get; set; }
         public int DrikkeID { get; set; }
@@ -14,6 +14,8 @@ namespace Julebrygg2.Models
         public virtual Bruker Bruker { get; set; }
         public string Bilde { get; set; }
         public int Karakter { get; set; }
-        public int MyProperty { get; set; }
+        public string Nokkelord { get; set; }
+        public bool SmakerJul { get; set; }
+
     }
 }
